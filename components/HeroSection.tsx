@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowDownRight } from "lucide-react";
 import { Container } from "@/components/Container";
@@ -19,33 +20,50 @@ export function HeroSection() {
       />
 
       <Container className="relative">
-        <p className="animate-fade-up mb-4 text-sm font-medium tracking-wide text-accent">
-          {site.location} · Open to opportunities
-        </p>
-        <h1 className="animate-fade-up-delay-1 max-w-3xl text-4xl font-bold leading-[1.15] tracking-tight text-foreground sm:text-5xl lg:text-[3.5rem]">
-          {site.name}
-        </h1>
-        <p className="animate-fade-up-delay-2 mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-          {site.tagline}
-        </p>
-        <p className="animate-fade-up-delay-2 mt-4 max-w-2xl text-base leading-relaxed text-foreground/90 sm:text-lg">
-          {site.intro}
-        </p>
-        <div className="animate-fade-up-delay-3 mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
-          <Link
-            href="/#projects"
-            className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-accent px-6 text-sm font-medium text-white transition-colors duration-200 hover:bg-accent-hover"
-          >
-            View Projects
-            <ArrowDownRight size={16} aria-hidden />
-          </Link>
-          <a
-            href={site.resumePath}
-            download
-            className="inline-flex h-12 items-center justify-center rounded-md border border-border bg-surface px-6 text-sm font-medium text-foreground transition-colors duration-200 hover:border-foreground/20 hover:bg-background"
-          >
-            Download Resume
-          </a>
+        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(240px,320px)] lg:gap-16">
+          <div>
+            <p className="animate-fade-up mb-4 text-sm font-medium tracking-wide text-accent">
+              {site.location} · Open to opportunities
+            </p>
+            <h1 className="animate-fade-up-delay-1 max-w-3xl text-4xl font-bold leading-[1.15] tracking-tight text-foreground sm:text-5xl lg:text-[3.5rem]">
+              {site.name}
+            </h1>
+            <p className="animate-fade-up-delay-2 mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+              {site.tagline}
+            </p>
+            <p className="animate-fade-up-delay-2 mt-4 max-w-2xl text-base leading-relaxed text-foreground/90 sm:text-lg">
+              {site.intro}
+            </p>
+            <div className="animate-fade-up-delay-3 mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <Link
+                href="/#projects"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-accent px-6 text-sm font-medium text-white transition-colors duration-200 hover:bg-accent-hover"
+              >
+                View Projects
+                <ArrowDownRight size={16} aria-hidden />
+              </Link>
+              <a
+                href={site.resumePath}
+                download
+                className="inline-flex h-12 items-center justify-center rounded-md border border-border bg-surface px-6 text-sm font-medium text-foreground transition-colors duration-200 hover:border-foreground/20 hover:bg-background"
+              >
+                Download Resume
+              </a>
+            </div>
+          </div>
+
+          <div className="animate-fade-up-delay-2 mx-auto w-full max-w-[280px] lg:mx-0 lg:max-w-none">
+            <div className="relative aspect-square overflow-hidden rounded-full ring-1 ring-border">
+              <Image
+                src={site.portraitPath}
+                alt={`${site.name}, Senior Frontend Engineer`}
+                fill
+                priority
+                sizes="(max-width: 1024px) 280px, 320px"
+                className="object-cover object-top"
+              />
+            </div>
+          </div>
         </div>
       </Container>
     </section>

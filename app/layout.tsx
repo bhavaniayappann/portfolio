@@ -32,11 +32,20 @@ export const metadata: Metadata = {
     siteName: site.name,
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: site.portraitPath,
+        width: 800,
+        height: 800,
+        alt: site.name,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} · ${site.title}`,
     description: site.intro,
+    images: [site.portraitPath],
   },
 };
 

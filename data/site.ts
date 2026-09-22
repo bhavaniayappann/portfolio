@@ -12,6 +12,7 @@ export const site = {
   // Update when you have a public GitHub profile URL
   github: "https://github.com/bhavaniayappann",
   resumePath: "/resume.pdf",
+  portraitPath: "/images/portrait.png",
   url: "https://bhavaniayappann.com",
 } as const;
 
